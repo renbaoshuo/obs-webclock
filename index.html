@@ -10,7 +10,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script>
-      var urlParams = new URLSearchParams(location);
+      var urlParams = new URLSearchParams(location.search);
 
       var output = document.getElementById('output');
       if (urlParams.get('style')) {
