@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>A simple clock</title>
+  </head>
+
+  <body translate="no">
+    <div id="output"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script>
+      var urlParams = new URLSearchParams(location);
+
+      var output = document.getElementById('output');
+      if (urlParams.get('style')) {
+        output.setAttribute('style', urlParams.get('style'));
+      }
+
+      if (urlParams.get('bodyStyle')) {
+        document.body.setAttribute('style', urlParams.get('style'));
+      }
+
+      var func = function () {
+        output.innerText = moment().format(urlParams.get('format') || '');
+      };
+
+      setInterval(func, 250);
+      func();
+    </script>
+  </body>
+</html>
